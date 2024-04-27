@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buttons</title>
+</head>
+<body>
+    <script>
+        const background = document.body;
+        function redBg(){
+            document.body.style.backgroundColor = "Red";
+        }
+        
+        function greenBg(){
+            document.body.style.backgroundColor = "Green";
+        }
+
+        function blueBg(){
+            document.body.style.backgroundColor =  "Blue";
+        }
+
+        const resbtn = () => {
+            background.style.backgroundColor = "white";
+        }
+    </script>
+
+    <button onclick="redBg()">BLOOD COLOR</button>
+    <button onclick="greenBg()">NATURRRRRRE COLOR</button>
+    <button onclick="blueBg()">just blue</button>
+    <button id="resbtn">boooo back to boring white</button>
+    <button id="blackbtn">ooooo spooky</button>
+    <button id="randombtn">go crazy</button>
+    
+    <script>
+        document.getElementById("resbtn").addEventListener("click", resbtn);
+
+        document.getElementById("blackbtn").addEventListener("click", () => {
+            background.style.backgroundColor = "black";
+    })
+
+        /*
+        document.getElementById("randombtn").addEventListener('click', function(){
+        //code
+        })
+        */
+
+        function getRandomNumber(number){
+            return Math.floor(Math.random() * number); // 0 s.d. n-1
+        }
+
+        function randombg(){
+            let rgb = [getRandomNumber(256), getRandomNumber(256), getRandomNumber(256)];
+            console.log(rgb);
+            background.style.backgroundColor = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+        }
+
+        document.getElementById("randombtn").onclick = randombg;
+    </script>
+</body>
+</html>
